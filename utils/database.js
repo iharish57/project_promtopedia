@@ -1,0 +1,1 @@
+let isConnected = false
