@@ -9,14 +9,14 @@ const Nav = () => {
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
-  const isUserLoggedIn = true;
+  const { data: session } = useSession();
 
   useEffect(() => {
-    const setProviders = async () => {
+    const setUpProviders = async () => {
       const response = await getProviders();
       setProviders(response);
     }
-    setProviders();
+    setUpProviders();
   }, [])
 
   return (
@@ -28,7 +28,7 @@ const Nav = () => {
 
       {/* Desktop navigation */}
       <div className="sm:flex hidden">
-        {isUserLoggedIn ? (
+        {session?.user ? (
           <div className="flex gap-3 md:gap-5">
             <Link href="/create-prompt" className="black_btn">
               Create Post
@@ -54,7 +54,7 @@ const Nav = () => {
 
       </div>
       <div className="flex sm:hidden relative">
-        {isUserLoggedIn ? (
+        {session?.user ? (
           <div className="flex">
 
             <Image
