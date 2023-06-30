@@ -36,7 +36,7 @@ const Nav = () => {
             <button type="button" onClick={signOut} className="outline_btn">
               Sign out
             </button>
-            <Image className=" rounded-full" alt="Profile" width={37} height={37} src="/assets/images/profile.svg" />
+            <Image className=" rounded-full" alt="Profile" width={37} height={37} src={session?.user.image} />
           </div>
         ) : (
           <>
@@ -53,12 +53,13 @@ const Nav = () => {
         }
 
       </div>
+      {/* mobile navigation */}
       <div className="flex sm:hidden relative">
         {session?.user ? (
           <div className="flex">
 
             <Image
-              src="/assets/images/logo.svg"
+              src={session?.user.image}
               width={30}
               height={30}
               alt="Profile"
