@@ -38,7 +38,6 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
             value={post.tag}
             onChange={(e) => setPost({ ...post, tag: e.target.value })}
             placeholder='#tag'
-            required
             className='form_input'
           />
         </label>
@@ -51,7 +50,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
             disabled={submitting}
             className='px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white'
           >
-            {submitting ? `${type}...` : type}s
+            {submitting ? `${type}...` : type}
           </button>
         </div>
       </form>
